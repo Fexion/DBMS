@@ -10,7 +10,7 @@
   <button type="submit" class="btn btn-default">Search</button>
 </form>
 </h1>
-
+{%if result %}
 <h1>Result</h1>
 <ul>
   {%for id, mem in result %}
@@ -18,5 +18,5 @@
   <li><a href="{% url 'creator_inf' id%}">{{mem}}</a></li>
   {%endfor%}
 </ul>
-
+{%endif%}
 {% endblock %}
