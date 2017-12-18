@@ -28,10 +28,10 @@ def mem_information(request, mem_id):
     context["picture"] = picture.fetchone()[0]
     context["name"] = cursor.execute('select Name from memes_mem where id='+str(mem_id)).fetchone()[0]
     context["BirthDate"] = cursor.execute('select Birth_Date from memes_mem where id='+str(mem_id)).fetchone()[0]
-    creator = cursor.execute('select Nickname from memes_creator where id=(select Creator_id_id from memes_mem where id ='+str(mem_id)+');')
+    creator = cursor.execute('select Nickname from memes_creator where id=(select creator_id from memes_mem where id ='+str(mem_id)+');')
     context["creator"] = creator.fetchone()[0]
-    context["likes"] = cursor.execute('select count(user_id) from memes_mem_User_likes_Mem where mem_id='+str(mem_id)).fetchone()[0]
-    context["tags"] = cursor.execute('select name  from memes_tag where id in (select tag_id from memes_tag_tag_mem where mem_id ='+str(mem_id)+');').fetchall()#cant print multiple
+    context["likes"] = cursor.execute('select count(user_id) from memes_mem_is_liked_by_user where mem_id='+str(mem_id)).fetchone()[0]
+    context["tags"] = cursor.execute('select name  from memes_tag where id in (select tag_id from memes_tag_mem where mem_id ='+str(mem_id)+');').fetchall()#cant print multiple
     print(context["tags"])
     return render(request, "memes/mem_inf.html", context)
 
@@ -40,7 +40,7 @@ def creator_inf(request, Creator_id):
     context = {}
     picture = cursor.execute('select Nickname from memes_creator where id='+str(Creator_id))
     context["Nickname"] = picture.fetchone()[0]
-    all_memes = cursor.execute('select picture, name from memes_mem where Creator_id_id='+str(Creator_id))
+    all_memes = cursor.execute('select picture, name from memes_mem where Creator_id='+str(Creator_id))
     print(all_memes)
     context["pictures"] = all_memes.fetchall()
 
@@ -63,13 +63,13 @@ def search(request):
     context = {}
     if (tag1 or tag2 or tag3 or tag4 or tag5):
         tag_list = '\''+str(tag1)+'\', \''+ str(tag2)+'\', \''+ str(tag3)+'\', \''+ str(tag4)+'\', \''+ str(tag5)+'\''
-        tag_select = 'id in(select mem_id from memes_tag_tag_mem where tag_id in (select id from memes_tag where name in ('+tag_list+'))) and '
+        tag_select = 'id in(select mem_id from memes_tag_mem where tag_id in (select id from memes_tag where name in ('+tag_list+'))) and '
     else:
         tag_select = ''
 
     if (sphere1 or sphere2 or sphere3):
         sphere_list = '\''+str(sphere1)+'\', \''+ str(sphere2)+'\', \''+ str(sphere3)+'\''
-        sphere_select = 'id in(select mem_id from memes_sphere_sphere_mem where sphere_id in (select id from memes_sphere where theme in ('+sphere_list+'))) and '
+        sphere_select = 'id in(select mem_id from memes_sphere_mem where sphere_id in (select id from memes_sphere where theme in ('+sphere_list+'))) and '
     else:
         sphere_select = ''
 
@@ -77,7 +77,7 @@ def search(request):
                             tag_select+sphere_select+\
     'id in (select mem_id from memes_mem_source where source_id in (select id from memes_source where name like \'%'+str(source)+'%\'))\
     and name like \'%'+str(name)+'%\'\
-    and Creator_id_id in (select id from memes_creator where nickname like \'%'+str(creator)+'%\')\
+    and Creator_id in (select id from memes_creator where nickname like \'%'+str(creator)+'%\')\
     ;')
     context["result"] = result.fetchall()
 

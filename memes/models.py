@@ -22,7 +22,7 @@ class Source(models.Model):
     Format = models.CharField(max_length = 100)
     Rating = models.IntegerField()
 
-    source_User = models.ManyToManyField(User)
+    user = models.ManyToManyField(User)
 
     def __str__(self):
         return self.Name
@@ -32,9 +32,9 @@ class Creator(models.Model):
     Popularity = models.IntegerField()
     Relation_to_Memes = models.CharField(max_length = 100)
 
-    User_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    User = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    Creator_Source = models.ManyToManyField(Source)
+    source = models.ManyToManyField(Source)
 
     def __str__(self):
         return self.Nickname
@@ -47,11 +47,11 @@ class Mem(models.Model):
     Localisation = models.CharField(max_length = 100)
     Picture = models.CharField(max_length=500)
 
-    Creator_id = models.ForeignKey(Creator, on_delete=models.CASCADE)
+    Creator = models.ForeignKey(Creator, on_delete=models.CASCADE)
 
     source = models.ManyToManyField(Source)
     Mem.User_watches_Mem = models.ManyToManyField(User)
-    User_likes_Mem = models.ManyToManyField(User)
+    is_liked_by_user = models.ManyToManyField(User)
 
     def __str__(self):
         return self.Name
@@ -59,10 +59,10 @@ class Tag(models.Model):
     Name = models.CharField(max_length = 100)
     Frequence_of_usage = models.CharField(max_length = 100)
 
-    Tag.User_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    Tag.User = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    Tag_Mem = models.ManyToManyField(Mem)
-    Tag_User = models.ManyToManyField(User)
+    mem = models.ManyToManyField(Mem)
+    user = models.ManyToManyField(User)
 
     def __str__(self):
         return self.Name
@@ -73,9 +73,9 @@ class Sphere(models.Model):
     Depth = models.IntegerField()
 
 
-    Sphere_Source = models.ManyToManyField(Source)
-    Sphere_Mem = models.ManyToManyField(Mem)
-    Tag_Sphere = models.ManyToManyField(Tag)
+    source = models.ManyToManyField(Source)
+    mem = models.ManyToManyField(Mem)
+    tag = models.ManyToManyField(Tag)
     def __str__(self):
         return self.Theme
 
