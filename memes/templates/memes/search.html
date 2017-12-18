@@ -35,11 +35,11 @@
 .
 </h1>
 
-  {%if all_memes %}
+  {%if result %}
   <div>
-  <h1>Memes</h1>
+  <h1>Result</h1>
   <ul>
-    {%for id, picture in all_memes %}
+    {%for id, picture in result %}
 </div>
     <div class="inf"><a href="{% url 'mem_inf' id%}"> <img class="index_list" src="{{ picture }}" width=300 height=300 ></a></div>
     {%endfor%}
@@ -47,36 +47,5 @@
 
   {%endif%}
 
-  {%if creators %}
-  <div>
-  <h1>Creators</h1>
-  <ul>
-    {%for id, mem in creators %}
-
-    <li><a href="{% url 'creator_inf' id%}">{{mem}}</a></li>
-    {%endfor%}
-  </ul>
-  {%endif%}
-
-  {%if tags%}
-  <h1>Tags</h1>
-  <ul>
-    {%for id, picture in tags %}
-</div>
-    <div class="inf"><a href="{% url 'mem_inf' id%}"> <img class="index_list" src="{{ picture }}" width=300 height=300 ></a></div>
-    {%endfor%}
-  </ul>
-  {%endif%}
-
-  {%if sources%}
-  <div>
-  <h1>Sources</h1>
-  <ul>
-    {%for id, picture in sources %}
-</div>
-    <div class="inf"><a href="{% url 'mem_inf' id%}"> <img class="index_list" src="{{ picture }}" width=300 height=300 ></a></div>
-    {%endfor%}
-  </ul>
-  {%endif%}
 
 {% endblock %}

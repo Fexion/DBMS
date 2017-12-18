@@ -61,14 +61,27 @@ def search(request):
 
     cursor = connection.cursor()
     context = {}
+    if (tag1 or tag2 or tag3 or tag4 or tag5):
+        tag_list = '\''+str(tag1)+'\', \''+ str(tag2)+'\', \''+ str(tag3)+'\', \''+ str(tag4)+'\', \''+ str(tag5)+'\''
+        tag_select = 'id in(select mem_id from memes_tag_tag_mem where tag_id in (select id from memes_tag where name in ('+tag_list+'))) and '
+    else:
+        tag_select = ''
 
-    tag_list = '\''+str(tag1)+'\', \''+ str(tag2)+'\', \''+ str(tag3)+'\', \''+ str(tag4)+'\', \''+ str(tag5)+'\''
-    tags = cursor.execute('select id, picture from memes_mem where id in \
-    (select mem_id from memes_tag_tag_mem where tag_id in (select id from memes_tag where name in ('+tag_list+'))) and id in \
-    (select mem_id from memes_mem_source where source_id in (select id from memes_source where name like \'%'+str(source)+'%\'));')
-    context["tags"] = tags.fetchall()
+    if (sphere1 or sphere2 or sphere3):
+        sphere_list = '\''+str(sphere1)+'\', \''+ str(sphere2)+'\', \''+ str(sphere3)+'\''
+        sphere_select = 'id in(select mem_id from memes_sphere_sphere_mem where sphere_id in (select id from memes_sphere where theme in ('+sphere_list+'))) and '
+    else:
+        sphere_select = ''
 
-    print(tags.fetchall())
+    result = cursor.execute('select id, picture from memes_mem where '+\
+                            tag_select+sphere_select+\
+    'id in (select mem_id from memes_mem_source where source_id in (select id from memes_source where name like \'%'+str(source)+'%\'))\
+    and name like \'%'+str(name)+'%\'\
+    and Creator_id_id in (select id from memes_creator where nickname like \'%'+str(creator)+'%\')\
+    ;')
+    context["result"] = result.fetchall()
+
+
     # search_mem = request.GET.get("q")
     # search_creator = request.GET.get("w")
     # search_tag = request.GET.get("e")
