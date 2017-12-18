@@ -1,0 +1,22 @@
+{% extends "memes/base.html"%}
+
+{% block body %}
+<h1>
+  <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'search_creator' %}">
+    <h1>Creator</h1>
+  <div class="form-group">
+      <input type="text" class="form-control" name="creator" value="{{ request.GET.creator }}">
+  </div>
+  <button type="submit" class="btn btn-default">Search</button>
+</form>
+</h1>
+
+<h1>Result</h1>
+<ul>
+  {%for id, mem in result %}
+
+  <li><a href="{% url 'creator_inf' id%}">{{mem}}</a></li>
+  {%endfor%}
+</ul>
+
+{% endblock %}

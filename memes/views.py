@@ -111,3 +111,19 @@ def search(request):
 
 
     return render(request, "memes/search.html", context)
+
+def search_creator(request):
+    creator = request.GET.get("creator")
+    cursor = connection.cursor()
+    context = {}
+
+
+
+    result = cursor.execute('select id, Nickname from memes_creator where Nickname like \'%'+str(creator)+'%\'')
+
+
+
+
+    context["result"] = result.fetchall()
+
+    return render(request, "memes/search_creator.html", context)
