@@ -31,7 +31,7 @@ def mem_information(request, mem_id):
     creator = cursor.execute('select Nickname from memes_creator where id=(select Creator_id_id from memes_mem where id ='+str(mem_id)+');')
     context["creator"] = creator.fetchone()[0]
     context["likes"] = cursor.execute('select count(user_id) from memes_mem_User_likes_Mem where mem_id='+str(mem_id)).fetchone()[0]
-    context["tags"] = cursor.execute('select name  from memes_tag where id = (select tag_id from memes_tag_tag_mem where mem_id ='+str(mem_id)+');').fetchall()#cant print multiple
+    context["tags"] = cursor.execute('select name  from memes_tag where id in (select tag_id from memes_tag_tag_mem where mem_id ='+str(mem_id)+');').fetchall()#cant print multiple
     print(context["tags"])
     return render(request, "memes/mem_inf.html", context)
 
@@ -49,6 +49,9 @@ def creator_inf(request, Creator_id):
 def search(request):
     search_mem = request.GET.get("q")
     search_creator = request.GET.get("w")
+    search_tag = request.GET.get("e")
+    search_sphere = request.GET.get("r")
+    search_source = request.GET.get("t")
 
     cursor = connection.cursor()
     context = {}
@@ -58,4 +61,21 @@ def search(request):
     if search_creator:
         creators = cursor.execute('select id, Nickname from memes_creator where nickname like \'%'+str(search_creator)+'%\'')
         context["creators"] = creators
+
+    if search_tag:
+        tags = cursor.execute('select id, picture from memes_mem where id in \
+        (select mem_id from memes_tag_tag_mem where tag_id in (select id from memes_tag where name like \'%'+str(search_tag)+'%\'));')
+        context["tags"] = tags
+    if search_source:
+        picture = cursor.execute('select id, picture from memes_mem where name like \'%'+str(search_mem)+'%\'')
+        context["all_memes"] = picture
+    if search_mem:
+        picture = cursor.execute('select id, picture from memes_mem where name like \'%'+str(search_mem)+'%\'')
+        context["all_memes"] = picture
+
+
+
+
+
+
     return render(request, "memes/search.html", context)
