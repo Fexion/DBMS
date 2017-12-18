@@ -3,29 +3,34 @@
 {% block body %}
 <h1>
   <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'search' %}">
+    <h1>Creator</h1>
+  <div class="form-group">
+      <input type="text" class="form-control" name="creator" value="{{ request.GET.creator }}">
+  </div>
+  <h1>Tags</h1>
+  <div class="form-group">
+      <input type="text" class="form-control" name="tag1" value="{{ request.GET.tag1 }}">
+      <input type="text" class="form-control" name="tag2" value="{{ request.GET.tag2 }}">
+      <input type="text" class="form-control" name="tag3" value="{{ request.GET.tag3 }}">
+      <input type="text" class="form-control" name="tag4" value="{{ request.GET.tag4 }}">
+      <input type="text" class="form-control" name="tag5" value="{{ request.GET.tag5 }}">
+  </div>
+    <h1>Mem name</h1>
       <div class="form-group">
-          <input type="text" class="form-control" name="q" value="{{ request.GET.q }}">
+          <input type="text" class="form-control" name="name" value="{{ request.GET.name }}">
       </div>
-      <button type="submit" class="btn btn-default">Search by mem</button>
-  </form>
-  <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'search' %}">
+    <h1>Source</h1>
       <div class="form-group">
-          <input type="text" class="form-control" name="w" value="{{ request.GET.w }}">
+          <input type="text" class="form-control" name="source" value="{{ request.GET.source }}">
       </div>
-      <button type="submit" class="btn btn-default">Search by creator</button>
-  </form>
+      <h1>Spheres</h1>
+        <div class="form-group">
+            <input type="text" class="form-control" name="sphere1" value="{{ request.GET.sphere1 }}">
+            <input type="text" class="form-control" name="sphere2" value="{{ request.GET.sphere2 }}">
+            <input type="text" class="form-control" name="sphere3" value="{{ request.GET.sphere3 }}">
+        </div>
 
-  <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'search' %}">
-      <div class="form-group">
-          <input type="text" class="form-control" name="e" value="{{ request.GET.e }}">
-      </div>
-      <button type="submit" class="btn btn-default">Search by tag</button>
-  </form>
-  <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'search' %}">
-      <div class="form-group">
-          <input type="text" class="form-control" name="r" value="{{ request.GET.r }}">
-      </div>
-      <button type="submit" class="btn btn-default">Search by source</button>
+      <button type="submit" class="btn btn-default">Search</button>
   </form>
 .
 </h1>
@@ -40,8 +45,9 @@
     {%endfor%}
   </ul>
 
+  {%endif%}
 
-  {%elif creators %}
+  {%if creators %}
   <div>
   <h1>Creators</h1>
   <ul>
@@ -50,8 +56,9 @@
     <li><a href="{% url 'creator_inf' id%}">{{mem}}</a></li>
     {%endfor%}
   </ul>
+  {%endif%}
 
-  {%elif tags%}
+  {%if tags%}
   <h1>Tags</h1>
   <ul>
     {%for id, picture in tags %}
@@ -59,8 +66,9 @@
     <div class="inf"><a href="{% url 'mem_inf' id%}"> <img class="index_list" src="{{ picture }}" width=300 height=300 ></a></div>
     {%endfor%}
   </ul>
+  {%endif%}
 
-  {%elif sources%}
+  {%if sources%}
   <div>
   <h1>Sources</h1>
   <ul>
@@ -70,4 +78,5 @@
     {%endfor%}
   </ul>
   {%endif%}
+
 {% endblock %}

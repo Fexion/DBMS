@@ -47,37 +47,53 @@ def creator_inf(request, Creator_id):
     return render(request, "memes/creator_inf.html", context)
 
 def search(request):
-    search_mem = request.GET.get("q")
-    search_creator = request.GET.get("w")
-    search_tag = request.GET.get("e")
-
-    search_source = request.GET.get("r")
-    search_sphere = request.GET.get("t")
+    creator = request.GET.get("creator")
+    tag1    = request.GET.get("tag1")
+    tag2    = request.GET.get("tag2")
+    tag3    = request.GET.get("tag3")
+    tag4    = request.GET.get("tag4")
+    tag5    = request.GET.get("tag5")
+    name    = request.GET.get("name")
+    source  = request.GET.get("source")
+    sphere1 = request.GET.get("sphere1")
+    sphere2 = request.GET.get("sphere2")
+    sphere3 = request.GET.get("sphere3")
 
     cursor = connection.cursor()
     context = {}
-    if search_mem:
-        picture = cursor.execute('select id, picture from memes_mem where name like \'%'+str(search_mem)+'%\'')
-        context["all_memes"] = picture
-    if search_creator:
-        creators = cursor.execute('select id, Nickname from memes_creator where nickname like \'%'+str(search_creator)+'%\'')
-        context["creators"] = creators
 
-    if search_tag:
-        tags = cursor.execute('select id, picture from memes_mem where id in \
-        (select mem_id from memes_tag_tag_mem where tag_id in (select id from memes_tag where name like \'%'+str(search_tag)+'%\'));')
-        context["tags"] = tags
-    if search_source:
-        source = cursor.execute('select id, picture from memes_mem where id in \
-        (select mem_id from memes_mem_source where source_id in (select id from memes_source where name like \'%'+str(search_source)+'%\'));')
-        print(source)
-        context["sources"] = source
-    if search_mem:
-        picture = cursor.execute('select id, picture from memes_mem where name like \'%'+str(search_mem)+'%\'')
-        context["all_memes"] = picture
+    tag_list = '\''+str(tag1)+'\', \''+ str(tag2)+'\', \''+ str(tag3)+'\', \''+ str(tag4)+'\', \''+ str(tag5)+'\''
+    tags = cursor.execute('select id, picture from memes_mem where id in \
+    (select mem_id from memes_tag_tag_mem where tag_id in (select id from memes_tag where name in ('+tag_list+'))) and id in \
+    (select mem_id from memes_mem_source where source_id in (select id from memes_source where name like \'%'+str(source)+'%\'));')
+    context["tags"] = tags.fetchall()
 
-
-
+    print(tags.fetchall())
+    # search_mem = request.GET.get("q")
+    # search_creator = request.GET.get("w")
+    # search_tag = request.GET.get("e")
+    #
+    # search_source = request.GET.get("r")
+    # search_sphere = request.GET.get("t")
+    #
+    # cursor = connection.cursor()
+    # context = {}
+    # if search_mem:
+    #     picture = cursor.execute('select id, picture from memes_mem where name like \'%'+str(search_mem)+'%\'')
+    #     context["all_memes"] = picture
+    # if search_creator:
+    #     creators = cursor.execute('select id, Nickname from memes_creator where nickname like \'%'+str(search_creator)+'%\'')
+    #     context["creators"] = creators
+    #
+    # if search_tag:
+    #     tags = cursor.execute('select id, picture from memes_mem where id in \
+    #     (select mem_id from memes_tag_tag_mem where tag_id in (select id from memes_tag where name like \'%'+str(search_tag)+'%\'));')
+    #     context["tags"] = tags
+    # if search_source:
+    #     source = cursor.execute('select id, picture from memes_mem where id in \
+    #     (select mem_id from memes_mem_source where source_id in (select id from memes_source where name like \'%'+str(search_source)+'%\'));')
+    #     print(source)
+    #     context["sources"] = source
 
 
 
