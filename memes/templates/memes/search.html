@@ -1,7 +1,7 @@
 {% extends "memes/base.html"%}
 
 {% block body %}
-<div>
+<h1>
   <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'search' %}">
       <div class="form-group">
           <input type="text" class="form-control" name="q" value="{{ request.GET.q }}">
@@ -14,15 +14,24 @@
       </div>
       <button type="submit" class="btn btn-default">Search by creator</button>
   </form>
-  
+
   <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'search' %}">
       <div class="form-group">
           <input type="text" class="form-control" name="e" value="{{ request.GET.e }}">
       </div>
       <button type="submit" class="btn btn-default">Search by tag</button>
   </form>
+  <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'search' %}">
+      <div class="form-group">
+          <input type="text" class="form-control" name="r" value="{{ request.GET.r }}">
+      </div>
+      <button type="submit" class="btn btn-default">Search by source</button>
+  </form>
+.
+</h1>
 
-  <h1> .</h1>
+  {%if all_memes %}
+  <div>
   <h1>Memes</h1>
   <ul>
     {%for id, picture in all_memes %}
@@ -32,7 +41,8 @@
   </ul>
 
 
-
+  {%elif creators %}
+  <div>
   <h1>Creators</h1>
   <ul>
     {%for id, mem in creators %}
@@ -41,7 +51,7 @@
     {%endfor%}
   </ul>
 
-
+  {%elif tags%}
   <h1>Tags</h1>
   <ul>
     {%for id, picture in tags %}
@@ -49,4 +59,15 @@
     <div class="inf"><a href="{% url 'mem_inf' id%}"> <img class="index_list" src="{{ picture }}" width=300 height=300 ></a></div>
     {%endfor%}
   </ul>
+
+  {%elif sources%}
+  <div>
+  <h1>Sources</h1>
+  <ul>
+    {%for id, picture in sources %}
+</div>
+    <div class="inf"><a href="{% url 'mem_inf' id%}"> <img class="index_list" src="{{ picture }}" width=300 height=300 ></a></div>
+    {%endfor%}
+  </ul>
+  {%endif%}
 {% endblock %}

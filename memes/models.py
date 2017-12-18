@@ -49,7 +49,7 @@ class Mem(models.Model):
 
     Creator_id = models.ForeignKey(Creator, on_delete=models.CASCADE)
 
-
+    source = models.ManyToManyField(Source)
     Mem.User_watches_Mem = models.ManyToManyField(User)
     User_likes_Mem = models.ManyToManyField(User)
 

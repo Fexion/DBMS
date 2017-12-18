@@ -50,8 +50,9 @@ def search(request):
     search_mem = request.GET.get("q")
     search_creator = request.GET.get("w")
     search_tag = request.GET.get("e")
-    search_sphere = request.GET.get("r")
-    search_source = request.GET.get("t")
+
+    search_source = request.GET.get("r")
+    search_sphere = request.GET.get("t")
 
     cursor = connection.cursor()
     context = {}
@@ -67,8 +68,10 @@ def search(request):
         (select mem_id from memes_tag_tag_mem where tag_id in (select id from memes_tag where name like \'%'+str(search_tag)+'%\'));')
         context["tags"] = tags
     if search_source:
-        picture = cursor.execute('select id, picture from memes_mem where name like \'%'+str(search_mem)+'%\'')
-        context["all_memes"] = picture
+        source = cursor.execute('select id, picture from memes_mem where id in \
+        (select mem_id from memes_mem_source where source_id in (select id from memes_source where name like \'%'+str(search_source)+'%\'));')
+        print(source)
+        context["sources"] = source
     if search_mem:
         picture = cursor.execute('select id, picture from memes_mem where name like \'%'+str(search_mem)+'%\'')
         context["all_memes"] = picture
