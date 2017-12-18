@@ -1,7 +1,14 @@
 {% extends "memes/base.html"%}
 
 {% block body %}
-  <img src="{{ picture }}">
-  <h1>Mem info: {{mem}}</h1>
+  <img class="inf" src="{{ picture }}" height="300" width="300">
+  <h1>Mem name: {{name}}</h1>
+  <h1>Mem BirthDate: {{BirthDate}}</h1>
   <h1>Creator: {{creator}}</h1>
+  <h1>Num of likes: {{likes}}</h1>
+  <h1>Tags:
+  {%for tag in tags %}
+
+  {{tag}}
+  {%endfor%}</h1>
 {% endblock %}

@@ -7,11 +7,11 @@
     <link rel="shortcut icon" type="image/png" href="http://www.rw-designer.com/icon-image/6835-256x256x32.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'memes/style.css' %}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <script src="{% static 'music/js/main.js' %}"></script>
+
 </head>
 <body>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -29,6 +29,25 @@
               </button>
               <a class="navbar-brand" href="{% url 'index' %}">Memes</a>
           </div>
+
+          <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+
+                <li><a href="{% url 'creators' %}"><span  aria-hidden="true"></span>&nbsp; Creators</a></li>
+                <li><a href="{% url 'search' %}"><span  aria-hidden="true"></span>&nbsp; Search</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/change">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Add Memes
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+
 
 
       </div>

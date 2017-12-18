@@ -72,12 +72,12 @@ class Sphere(models.Model):
     Relevance = models.CharField(max_length = 100)
     Depth = models.IntegerField()
 
-    Sphere_Theme = models.ForeignKey('self', null=True)
 
     Sphere_Source = models.ManyToManyField(Source)
     Sphere_Mem = models.ManyToManyField(Mem)
     Tag_Sphere = models.ManyToManyField(Tag)
-
+    def __str__(self):
+        return self.Theme
 
 '''
 class Sphere_Source(models.Model):

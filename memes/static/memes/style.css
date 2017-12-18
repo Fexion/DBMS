@@ -1,5 +1,5 @@
 body{
-  background : white url("http://solografika.com/wp-content/uploads/2017/08/Color-Web-Page-Change-Site-Image-Web-Page-Background-Color.jpg");
+  background : white url("Website-Background.jpg");
 }
 
 .navbar{
@@ -7,4 +7,24 @@ body{
 }
 .navbar-brand{
   font-family: Satisfy;
+}
+
+img.index_list{
+  max-height: 100;
+  width: auto;
+  display: block;
+  margin: auto;
+
+}
+
+img.inf{
+  max-height: 200;
+  width: auto;
+  display: block;
+}
+
+div.inf {
+
+  padding: 10px;
+    margin: auto;
 }
