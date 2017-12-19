@@ -10,6 +10,13 @@ body{
   font-family: Satisfy;
 }
 
+font.font_search {
+	font-family: 'Blackadder ITC';
+	font-size: 100%;
+	font-weight: 600;
+
+}
+
 figure.inf {
 	align:center;
 }
@@ -48,6 +55,36 @@ div.inf {
   float:left;
   margin:auto;
 }
+
+button.btn {
+
+	background: url("https://avatanplus.com/files/resources/mid/585c270e8222c15927f890c5.png");
+	width: 256px;
+	height: 256px;
+}
+
+div.bttn {
+	margin-top: 10px;
+}
+
+div.search {
+	float:left;
+}
+
+div.search_res {
+	margin-top:25px;
+	margin-left:250px;
+	float:left;
+}
+
+input.form-control {
+
+	border: 1px solid gray;
+	font-family: 'Agency FB';
+	font-size:65%;
+	font-weight: 500;
+}
+
 
 ul.border {
 list-style-image: url(https://pp.userapi.com/c840422/v840422959/1e667/vyC6baHihiM.jpg);
