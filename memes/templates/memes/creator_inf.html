@@ -1,6 +1,18 @@
 {% extends "memes/base.html"%}
 
 {% block body %}
+
+<h1>Nickname  : {{Nickname}}</h1>
+<h1>BirthDate : {{BirthDate}}</h1>
+<h1>Sex       : {{sex}}</h1>
+<h1>Popularity: {{Popularity}}</h1>
+<h1>Sources   :</h1>
+<ul>
+  {%for source,_ in sources %}
+
+  <h1 class="inf"> {{source}} </h1>
+  {%endfor%}
+</ul>
 <ul>
   {%for picture, name in pictures %}
 

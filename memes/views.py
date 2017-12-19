@@ -13,10 +13,9 @@ def index(request):
 
 def creators(request):
     cursor = connection.cursor()
+    context={}
     creators = cursor.execute("select id, Nickname from memes_creator")
-    context = {
-        "creators" : creators,
-    }
+    context["creators"] = creators
     return render(request, "memes/creators.html", context)
 
 
@@ -38,11 +37,27 @@ def mem_information(request, mem_id):
 def creator_inf(request, Creator_id):
     cursor = connection.cursor()
     context = {}
-    picture = cursor.execute('select Nickname from memes_creator where id='+str(Creator_id))
-    context["Nickname"] = picture.fetchone()[0]
+
+    Nickname = cursor.execute('select Nickname from memes_creator where id='+str(Creator_id))
+    context["Nickname"] = Nickname.fetchone()[0]
     all_memes = cursor.execute('select picture, name from memes_mem where Creator_id='+str(Creator_id))
-    print(all_memes)
     context["pictures"] = all_memes.fetchall()
+    popularity = cursor.execute('select popularity from memes_creator where id='+str(Creator_id))
+    context["Popularity"] = popularity.fetchall()[0][0]
+
+    Birthdate = cursor.execute('select Birth_Date from memes_user where id in (select user_id from  memes_creator where id='+str(Creator_id)+')')
+
+    context["BirthDate"] = Birthdate.fetchall()[0][0]
+
+    sex = cursor.execute('select sex from memes_user where id = (select user_id from  memes_creator where id='+str(Creator_id)+')')
+    if sex.fetchall()[0][0]:
+        sex = "female"
+    else:
+        sex = "male"
+    context["sex"] = sex
+
+    sources = cursor.execute('select name from memes_source where id in (select source_id from memes_creator_source where creator_id ='+str(Creator_id)+')')
+    context["sources"] = sources.fetchall()
 
     return render(request, "memes/creator_inf.html", context)
 

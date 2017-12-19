@@ -1,0 +1,221 @@
+INSERT INTO memes_source VALUES(4,'Pikabu','forum',9);
+INSERT INTO memes_source VALUES(5,'9gag','forum',7);
+INSERT INTO memes_source VALUES(6,'YaPlakal','community',4);
+INSERT INTO memes_source VALUES(7,'VK','social network',10);
+
+
+
+INSERT INTO memes_user VALUES(4,'1u_user','2000-01-01','1u_education',0,'1u_area');
+INSERT INTO memes_user VALUES(5,'2u_user','2000-01-01','2u_education',0,'2u_area');
+INSERT INTO memes_user VALUES(6,'3u_user','2000-01-01','3u_education',0,'3u_area');
+INSERT INTO memes_user VALUES(7,'4u_user','2000-01-01','4u_education',0,'4u_area');
+INSERT INTO memes_user VALUES(8,'5u_user','2000-01-01','5u_education',1,'5u_area');
+INSERT INTO memes_user VALUES(9,'6u_user','2000-01-01','6u_education',1,'6u_area');
+INSERT INTO memes_user VALUES(10,'7u_user','2000-01-01','7u_education',1,'7u_area');
+INSERT INTO memes_user VALUES(11,'8u_user','2000-01-01','8u_education',1,'8u_area');
+INSERT INTO memes_user VALUES(12,'9u_user','2000-01-01','9u_education',2,'9u_education');
+INSERT INTO memes_user VALUES(13,'0u_user','2000-01-01','0u_education',2,'0u_area');
+
+
+
+INSERT INTO memes_tag VALUES(4,'cat','0t_fou');
+INSERT INTO memes_tag VALUES(5,'Ben_Affleck','1t_fou');
+INSERT INTO memes_tag VALUES(6,'When...','2t_fou');
+INSERT INTO memes_tag VALUES(7,'comics','3t_fou');
+INSERT INTO memes_tag VALUES(8,'Will_not_stay','4t_fou');
+
+
+
+INSERT INTO memes_sphere VALUES(2,'Жизненные истории','1sp_relevance',1);
+
+
+INSERT INTO memes_mem_source VALUES(5,5,4);
+INSERT INTO memes_mem_source VALUES(6,6,4);
+INSERT INTO memes_mem_source VALUES(7,6,7);
+INSERT INTO memes_mem_source VALUES(8,7,4);
+INSERT INTO memes_mem_source VALUES(9,8,5);
+INSERT INTO memes_mem_source VALUES(10,8,6);
+INSERT INTO memes_mem_source VALUES(11,9,5);
+INSERT INTO memes_mem_source VALUES(12,9,7);
+INSERT INTO memes_mem_source VALUES(13,10,4);
+INSERT INTO memes_mem_source VALUES(14,10,5);
+INSERT INTO memes_mem_source VALUES(15,11,7);
+INSERT INTO memes_mem_source VALUES(16,12,5);
+INSERT INTO memes_mem_source VALUES(17,12,6);
+INSERT INTO memes_mem_source VALUES(18,13,6);
+INSERT INTO memes_mem_source VALUES(19,14,7);
+INSERT INTO memes_mem_source VALUES(20,15,4);
+INSERT INTO memes_mem_source VALUES(21,16,4);
+INSERT INTO memes_mem_source VALUES(22,16,5);
+INSERT INTO memes_mem_source VALUES(23,16,6);
+INSERT INTO memes_mem_source VALUES(24,16,7);
+
+
+
+
+INSERT INTO memes_creator_Source VALUES(6,4,4);
+INSERT INTO memes_creator_Source VALUES(7,4,5);
+INSERT INTO memes_creator_Source VALUES(8,4,6);
+INSERT INTO memes_creator_Source VALUES(9,5,7);
+INSERT INTO memes_creator_Source VALUES(10,6,4);
+INSERT INTO memes_creator_Source VALUES(11,6,7);
+INSERT INTO memes_creator_Source VALUES(12,7,4);
+
+
+
+
+INSERT INTO memes_creator VALUES(4,'1c_creator',9,'1c_relations',6);
+INSERT INTO memes_creator VALUES(5,'2c_creator',3,'2c_relations',13);
+INSERT INTO memes_creator VALUES(6,'3c_creator',6,'3c_relations',4);
+INSERT INTO memes_creator VALUES(7,'0c_creator',10,'0c_relations',4);
+
+
+
+
+INSERT INTO memes_mem VALUES(5,'2017-12-19','0m_pd',1,'0m_loc','0m_meme','https://cs8.pikabu.ru/post_img/2017/12/18/5/1513582247120411414.jpg',6);
+INSERT INTO memes_mem VALUES(6,'2017-12-19','1m_pd',0,'1m_loc','1m_meme','https://cs8.pikabu.ru/post_img/2017/12/15/4/151331139614711740.jpg',7);
+INSERT INTO memes_mem VALUES(7,'2017-12-19','2m_pd',1,'2m_loc','2m_meme','https://cs8.pikabu.ru/post_img/2017/12/14/7/151325085515771256.jpg',7);
+INSERT INTO memes_mem VALUES(8,'2017-12-19','3m_pd',1,'3m_loc','3m_meme','https://cs8.pikabu.ru/post_img/big/2017/12/13/1/1513120969195841468.jpg',4);
+INSERT INTO memes_mem VALUES(9,'2017-12-19','4m_pd',1,'4m_loc','4m_meme','https://cs8.pikabu.ru/post_img/2017/10/31/0/1509399376173286318.jpg',5);
+INSERT INTO memes_mem VALUES(10,'2017-12-19','5m_pd',1,'5m_loc','5m_meme','https://cs8.pikabu.ru/post_img/2017/12/10/12/151293753011769184.jpg',7);
+INSERT INTO memes_mem VALUES(11,'2017-12-19','6m_pd',1,'6m_loc','6m_meme','https://cs8.pikabu.ru/post_img/big/2017/12/13/0/151311292414549350.jpg',6);
+INSERT INTO memes_mem VALUES(12,'2017-12-19','7m_pd',1,'7m_loc','7m_meme','https://cs8.pikabu.ru/post_img/2017/12/18/4/1513576194113734542.jpg',4);
+INSERT INTO memes_mem VALUES(13,'2017-12-19','8m_pd',1,'8m_loc','8m_meme','https://cs9.pikabu.ru/post_img/big/2016/10/01/5/1475306252183143974.jpg',5);
+INSERT INTO memes_mem VALUES(14,'2017-12-19','9m_pd',1,'9m_loc','9m_meme','https://cs8.pikabu.ru/post_img/big/2017/12/17/5/1513497123169240091.jpg',5);
+INSERT INTO memes_mem VALUES(15,'2017-12-19','10m_pd',1,'10m_loc','10m_meme','https://cs8.pikabu.ru/post_img/big/2017/12/10/6/1512894041120682183.jpg',7);
+INSERT INTO memes_mem VALUES(16,'2017-12-19','11m_pd',1,'11m_loc','11m_meme','http://risovach.ru/upload/2014/10/mem/kot-v-nedorazumenii_63628109_orig_.jpeg',6);
+
+
+
+INSERT INTO memes_mem_is_liked_by_user VALUES(9,5,4);
+INSERT INTO memes_mem_is_liked_by_user VALUES(10,5,5);
+INSERT INTO memes_mem_is_liked_by_user VALUES(11,6,5);
+INSERT INTO memes_mem_is_liked_by_user VALUES(12,6,6);
+INSERT INTO memes_mem_is_liked_by_user VALUES(13,7,4);
+INSERT INTO memes_mem_is_liked_by_user VALUES(14,7,5);
+INSERT INTO memes_mem_is_liked_by_user VALUES(15,7,6);
+INSERT INTO memes_mem_is_liked_by_user VALUES(16,8,8);
+INSERT INTO memes_mem_is_liked_by_user VALUES(17,8,9);
+INSERT INTO memes_mem_is_liked_by_user VALUES(18,8,11);
+INSERT INTO memes_mem_is_liked_by_user VALUES(19,8,6);
+INSERT INTO memes_mem_is_liked_by_user VALUES(20,9,4);
+INSERT INTO memes_mem_is_liked_by_user VALUES(21,9,7);
+INSERT INTO memes_mem_is_liked_by_user VALUES(22,9,9);
+INSERT INTO memes_mem_is_liked_by_user VALUES(23,9,10);
+INSERT INTO memes_mem_is_liked_by_user VALUES(24,9,12);
+INSERT INTO memes_mem_is_liked_by_user VALUES(25,9,13);
+INSERT INTO memes_mem_is_liked_by_user VALUES(26,10,8);
+INSERT INTO memes_mem_is_liked_by_user VALUES(27,10,4);
+INSERT INTO memes_mem_is_liked_by_user VALUES(28,10,5);
+INSERT INTO memes_mem_is_liked_by_user VALUES(29,10,6);
+INSERT INTO memes_mem_is_liked_by_user VALUES(30,10,7);
+INSERT INTO memes_mem_is_liked_by_user VALUES(31,11,11);
+INSERT INTO memes_mem_is_liked_by_user VALUES(32,12,6);
+INSERT INTO memes_mem_is_liked_by_user VALUES(33,13,10);
+INSERT INTO memes_mem_is_liked_by_user VALUES(34,13,11);
+INSERT INTO memes_mem_is_liked_by_user VALUES(35,13,12);
+INSERT INTO memes_mem_is_liked_by_user VALUES(36,14,4);
+INSERT INTO memes_mem_is_liked_by_user VALUES(37,14,5);
+INSERT INTO memes_mem_is_liked_by_user VALUES(38,14,7);
+INSERT INTO memes_mem_is_liked_by_user VALUES(39,14,8);
+INSERT INTO memes_mem_is_liked_by_user VALUES(40,14,9);
+INSERT INTO memes_mem_is_liked_by_user VALUES(41,14,10);
+INSERT INTO memes_mem_is_liked_by_user VALUES(42,14,11);
+INSERT INTO memes_mem_is_liked_by_user VALUES(43,14,12);
+INSERT INTO memes_mem_is_liked_by_user VALUES(44,14,13);
+INSERT INTO memes_mem_is_liked_by_user VALUES(45,15,6);
+INSERT INTO memes_mem_is_liked_by_user VALUES(46,16,5);
+
+
+
+
+INSERT INTO memes_source_User VALUES(8,4,4);
+INSERT INTO memes_source_User VALUES(9,4,5);
+INSERT INTO memes_source_User VALUES(10,4,6);
+INSERT INTO memes_source_User VALUES(11,5,8);
+INSERT INTO memes_source_User VALUES(12,5,9);
+INSERT INTO memes_source_User VALUES(13,5,5);
+INSERT INTO memes_source_User VALUES(14,5,7);
+INSERT INTO memes_source_User VALUES(15,6,12);
+INSERT INTO memes_source_User VALUES(16,6,13);
+INSERT INTO memes_source_User VALUES(17,6,6);
+INSERT INTO memes_source_User VALUES(18,7,4);
+INSERT INTO memes_source_User VALUES(19,7,5);
+INSERT INTO memes_source_User VALUES(20,7,7);
+INSERT INTO memes_source_User VALUES(21,7,8);
+INSERT INTO memes_source_User VALUES(22,7,9);
+INSERT INTO memes_source_User VALUES(23,7,10);
+INSERT INTO memes_source_User VALUES(24,7,11);
+INSERT INTO memes_source_User VALUES(25,7,12);
+INSERT INTO memes_source_User VALUES(26,7,13);
+
+
+
+
+INSERT INTO memes_sphere_Mem VALUES(2,2,7);
+INSERT INTO memes_sphere_Mem VALUES(3,2,9);
+INSERT INTO memes_sphere_Mem VALUES(4,2,12);
+INSERT INTO memes_sphere_Mem VALUES(5,2,13);
+INSERT INTO memes_sphere_Mem VALUES(6,2,14);
+INSERT INTO memes_sphere_Mem VALUES(7,2,15);
+
+
+
+INSERT INTO memes_sphere_Source VALUES(2,2,4);
+INSERT INTO memes_sphere_Source VALUES(3,2,5);
+INSERT INTO memes_sphere_Source VALUES(4,2,6);
+INSERT INTO memes_sphere_Source VALUES(5,2,7);
+
+
+
+INSERT INTO memes_sphere_Tag VALUES(2,2,6);
+
+
+
+
+INSERT INTO memes_tag_Mem VALUES(12,4,16);
+INSERT INTO memes_tag_Mem VALUES(13,4,14);
+INSERT INTO memes_tag_Mem VALUES(14,4,15);
+INSERT INTO memes_tag_Mem VALUES(15,5,10);
+INSERT INTO memes_tag_Mem VALUES(16,5,11);
+INSERT INTO memes_tag_Mem VALUES(17,5,7);
+INSERT INTO memes_tag_Mem VALUES(18,6,16);
+INSERT INTO memes_tag_Mem VALUES(19,6,9);
+INSERT INTO memes_tag_Mem VALUES(20,6,12);
+INSERT INTO memes_tag_Mem VALUES(21,6,13);
+INSERT INTO memes_tag_Mem VALUES(22,6,7);
+INSERT INTO memes_tag_Mem VALUES(23,7,5);
+INSERT INTO memes_tag_Mem VALUES(24,7,6);
+INSERT INTO memes_tag_Mem VALUES(25,7,8);
+INSERT INTO memes_tag_Mem VALUES(26,7,10);
+INSERT INTO memes_tag_Mem VALUES(27,7,11);
+INSERT INTO memes_tag_Mem VALUES(28,7,14);
+INSERT INTO memes_tag_Mem VALUES(29,7,15);
+INSERT INTO memes_tag_Mem VALUES(30,8,8);
+INSERT INTO memes_tag_Mem VALUES(31,8,10);
+INSERT INTO memes_tag_Mem VALUES(32,8,5);
+INSERT INTO memes_tag_Mem VALUES(33,8,6);
+
+
+INSERT INTO memes_tag_User VALUES(4,4,8);
+INSERT INTO memes_tag_User VALUES(5,4,4);
+INSERT INTO memes_tag_User VALUES(6,4,5);
+INSERT INTO memes_tag_User VALUES(7,4,7);
+INSERT INTO memes_tag_User VALUES(8,5,10);
+INSERT INTO memes_tag_User VALUES(9,5,6);
+INSERT INTO memes_tag_User VALUES(10,5,7);
+INSERT INTO memes_tag_User VALUES(11,6,12);
+INSERT INTO memes_tag_User VALUES(12,6,13);
+INSERT INTO memes_tag_User VALUES(13,6,7);
+INSERT INTO memes_tag_User VALUES(14,7,4);
+INSERT INTO memes_tag_User VALUES(15,7,5);
+INSERT INTO memes_tag_User VALUES(16,7,6);
+INSERT INTO memes_tag_User VALUES(17,7,7);
+INSERT INTO memes_tag_User VALUES(18,7,8);
+INSERT INTO memes_tag_User VALUES(19,7,9);
+INSERT INTO memes_tag_User VALUES(20,7,10);
+INSERT INTO memes_tag_User VALUES(21,7,11);
+INSERT INTO memes_tag_User VALUES(22,7,12);
+INSERT INTO memes_tag_User VALUES(23,7,13);
+INSERT INTO memes_tag_User VALUES(24,8,9);
+INSERT INTO memes_tag_User VALUES(25,8,7);
