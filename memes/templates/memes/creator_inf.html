@@ -1,11 +1,10 @@
 {% extends "memes/base.html"%}
 
 {% block body %}
-<h1>List of memes made by {{Nickname}}</h1>
 <ul>
   {%for picture, name in pictures %}
 
-  <div class="inf">  <img src="{{ picture }}"width=300 height=300> {{name}} </div>
+  <div class="inf"> <figure class='inf'> <img class='index_list' src="{{ picture }}" > </img> <figcaption> {{name}}</figcaption></figure> </div>
   {%endfor%}
 </ul>
 {% endblock %}

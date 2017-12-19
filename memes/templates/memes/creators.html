@@ -1,11 +1,10 @@
 {% extends "memes/base.html"%}
 
 {% block body %}
-  <h1>Creators</h1>
-  <ul>
+  <ul class = 'border'>
     {%for id, mem in creators %}
 
-    <li><a href="{% url 'creator_inf' id%}">{{mem}}</a></li>
+    <li><a href="{% url 'creator_inf' id%}" style="color:#696969;">{{mem}}</a></li>
     {%endfor%}
   </ul>
 {% endblock %}

@@ -10,11 +10,28 @@ body{
   font-family: Satisfy;
 }
 
+figure.inf {
+	align:center;
+}
+
+figure.inf figcaption {
+  margin: 0 auto 5px;
+  font-family: 'Engravers MT';
+  font-weight: 500;
+  font-size:120%;
+  font-style: italic;
+  color: dark grey;
+}
+
 img.index_list{
-  max-height: 100;
-  width: auto;
+  max-height: 550px;
+  padding: 10px;
+  max-width: 550px;
+  vspace: 0px;
   display: block;
   margin: auto;
+  border: 1px solid gray;
+  align: center;
 
 }
 
@@ -25,7 +42,28 @@ img.inf{
 }
 
 div.inf {
+  align:center;
+  width:600px;
+  height:600px;
+  float:left;
+  margin:auto;
+}
 
-  padding: 10px;
-    margin: auto;
+ul.border {
+list-style-image: url(https://pp.userapi.com/c840422/v840422959/1e667/vyC6baHihiM.jpg);
+padding: 65px;
+}
+ul.border li {
+font-family: "Trebuchet MS", "Lucida Sans";
+padding: 7px 20px;
+margin-bottom: 10px;
+border-radius: 5px;
+border-left: 10px solid #f05d22;
+box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+     -2px -2px 5px 0 rgba(0,0,0,.1),
+    2px 2px 5px 0 rgba(0,0,0,.1),
+    -2px 2px 5px 0 rgba(0,0,0,.1);
+font-size: 20px;
+letter-spacing: 2px;
+transition: 0.3s all linear;
 }
