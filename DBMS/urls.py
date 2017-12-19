@@ -18,7 +18,7 @@ from django.contrib import admin
 from memes.admin import user_admin_site
 
 
-user_admin_site.site_header = "User settings"
+user_admin_site.site_header = "User interface"
 user_admin_site.index_title = ""
 
 urlpatterns = [

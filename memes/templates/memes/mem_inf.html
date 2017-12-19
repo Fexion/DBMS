@@ -1,14 +1,16 @@
 {% extends "memes/base.html"%}
 
 {% block body %}
-  <img class="inf" src="{{ picture }}" height="300" width="300">
-  <h1>Mem name: {{name}}</h1>
-  <h1>Mem BirthDate: {{BirthDate}}</h1>
-  <h1>Creator: {{creator}}</h1>
-  <h1>Num of likes: {{likes}}</h1>
-  <h1>Tags:
+<div class='mem'>
+  <img class='mem' src="{{ picture }}" width=500px, height=500px;> </img>
+  <h1><font class='font_search'>Mem name: {{name}} </font></h1>
+  <h1><font class='font_search'>Mem BirthDate: {{BirthDate}} </font></h1>
+  <h1><font class='font_search'>Creator: {{creator}} </font></h1>
+  <h1><font class='font_search'>Num of likes: {{likes}} </font></h1>
+  <h1><font class='font_search'>Tags:
   {%for tag, _ in tags %}
 
   ({{tag}})
-  {%endfor%}</h1>
+  {%endfor%} </font></h1>
+  </div>
 {% endblock %}

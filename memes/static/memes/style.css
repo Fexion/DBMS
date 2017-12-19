@@ -14,7 +14,6 @@ font.font_search {
 	font-family: 'Blackadder ITC';
 	font-size: 100%;
 	font-weight: 600;
-
 }
 
 figure.inf {
@@ -46,6 +45,18 @@ img.inf{
   max-height: 200;
   width: auto;
   display: block;
+}
+
+img.mem {
+  width: auto;
+  display: block;
+}
+
+div.mem {
+  width:auto;
+  height:600px;
+  margin: 50px;
+  padding: 50px;
 }
 
 div.inf {
