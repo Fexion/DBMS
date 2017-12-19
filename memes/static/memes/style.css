@@ -11,9 +11,10 @@ body{
 }
 
 font.font_search {
-	font-family: 'Blackadder ITC';
+	font-family: 'Bookman Old Style';
 	font-size: 100%;
 	font-weight: 600;
+
 }
 
 figure.inf {
@@ -50,6 +51,14 @@ img.inf{
 img.mem {
   width: auto;
   display: block;
+}
+
+div.creator {
+  margin: 50px;
+}
+
+div.creator_pics {
+  margin-left: 50px;
 }
 
 div.mem {

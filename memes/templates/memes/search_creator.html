@@ -1,29 +1,31 @@
 {% extends "memes/base.html"%}
 
 {% block body %}
+<div class='search'>
 <h1>
   <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'search_creator' %}">
-    <h1>Creator</h1>
   <div class="form-group">
+      <h1><font class='font_search'>Creator</font></h1>
       <input type="text" class="form-control" name="creator" value="{{ request.GET.creator }}">
-  </div>
-  <h1>Popularity Between</h1>
-    <div class="form-group">
+  <h1><font class='font_search'>Popularity Between </font></h1>
         <input type="text" class="form-control" name="low" value="{{ request.GET.low }}">
         <input type="text" class="form-control" name="hight" value="{{ request.GET.hight }}">
 
     </div>
 
-  <button type="submit" class="btn "></button>
+  <button type="submit" class="btn"></button>
 </form>
 </h1>
+</div>
+<div class='search_res'>
 {%if result %}
-<h1>Result</h1>
-<ul>
+<h1><font class='font_search'>Result</font></h1>
+<ul class = 'border'>
   {%for id, mem in result %}
 
-  <li><a href="{% url 'creator_inf' id%}">{{mem}}</a></li>
+  <li><a href="{% url 'creator_inf' id%}" style="color:#696969;">{{mem}}</a></li>
   {%endfor%}
 </ul>
 {%endif%}
+</div>
 {% endblock %}

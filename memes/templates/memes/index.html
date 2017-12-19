@@ -1,16 +1,12 @@
 {% extends "memes/base.html"%}
 
 {% block body %}
-  <ul margin=0px; padding=0px;>
-  <div margin=0px; padding=0px;>
     {%for id, mem, picture in all_memes %}
     {% if forloop.counter0|divisibleby:3 %}
-	</div> <div margin=0px; padding=0px;>
-	<div class="inf"><a href="{% url 'mem_inf' id%}"> <img class="index_list" src="{{ picture }}"> </img> </a> </div>
+	<br>
+	<div class="inf" margin=0px; padding=0px;><a href="{% url 'mem_inf' id%}"> <img class="index_list" src="{{ picture }}"> </img> </a> </div>
 	{% else %}
-    <div class="inf"><a href="{% url 'mem_inf' id%}"> <img class="index_list" src="{{ picture }}"> </img> </a> </div>
+    <div class="inf" margin=0px; padding=0px;><a href="{% url 'mem_inf' id%}"> <img class="index_list" src="{{ picture }}"> </img> </a> </div>
 	{% endif %}
     {%endfor%}
-	</div>
-  </ul>
 {% endblock %}

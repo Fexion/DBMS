@@ -1,23 +1,24 @@
 {% extends "memes/base.html"%}
 
 {% block body %}
-
-<h1>Nickname  : {{Nickname}}</h1>
-<h1>BirthDate : {{BirthDate}}</h1>
-<h1>Sex       : {{sex}}</h1>
-<h1>Popularity: {{Popularity}}</h1>
-<h1>Sources   :
+<div class='creator'>
+<h1><font class='font_search'>Nickname  : {{Nickname}}</font></h1>
+<h1><font class='font_search'>BirthDate : {{BirthDate}}</font></h1>
+<h1><font class='font_search'>Sex       : {{sex}}</font></h1>
+<h1><font class='font_search'>Popularity: {{Popularity}}</font></h1>
+<h1><font class='font_search'>Sources   :
 
   {%for source,_ in sources %}
 
    ({{source}})
   {%endfor%}
-  </h1>
-
-<ul>
+  </font></h1>
+  <h1><font class='font_search'>Created memes: </font></h1>
+</div>
+<div class='creator_pics'>
   {%for picture, name in pictures %}
 
   <div class="inf"> <figure class='inf'> <img class='index_list' src="{{ picture }}" > </img> <figcaption> {{name}}</figcaption></figure> </div>
   {%endfor%}
-</ul>
+</div>
 {% endblock %}
