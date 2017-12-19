@@ -7,8 +7,8 @@
   <h1>Creator: {{creator}}</h1>
   <h1>Num of likes: {{likes}}</h1>
   <h1>Tags:
-  {%for tag in tags %}
+  {%for tag, _ in tags %}
 
-  {{tag}}
+  ({{tag}})
   {%endfor%}</h1>
 {% endblock %}

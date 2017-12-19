@@ -129,12 +129,22 @@ def search(request):
 
 def search_creator(request):
     creator = request.GET.get("creator")
+    hight = request.GET.get("hight")
+    low = request.GET.get("low")
     cursor = connection.cursor()
     context = {}
+    print("q",hight,"q", low, sep='')
+    if (hight or low):
+        if (hight and low ==''):
+            low = 0
+        if (low and hight==''):
+            hight = 100
+            print("sdkjhflkjsdfhtglkjhrtlkh")
+        popularity = ' and popularity <='+str(hight)+' and popularity >='+str(low)
+    else:
+        popularity = ""
 
-
-
-    result = cursor.execute('select id, Nickname from memes_creator where Nickname like \'%'+str(creator)+'%\'')
+    result = cursor.execute('select id, Nickname from memes_creator where Nickname like \'%'+str(creator)+'%\'' + popularity)
 
 
 
