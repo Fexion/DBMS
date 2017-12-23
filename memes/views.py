@@ -11,6 +11,26 @@ def index(request):
     }
     return render(request, "memes/index.html", context)
 
+def sort(request):
+    cursor = connection.cursor()
+    all_memes = cursor.execute('select count(memes_mem_is_liked_by_user.user_id) AS c, memes_mem.id, memes_mem.Name, memes_mem.picture from memes_mem\
+      join memes_mem_is_liked_by_user on memes_mem_is_liked_by_user.mem_id = memes_mem.id group by memes_mem.id order by c desc')
+    context = {
+        "all_memes" : all_memes,
+    }
+    return render(request, "memes/sort.html", context)
+
+def sort_creators(request):
+    cursor = connection.cursor()
+    all_memes = cursor.execute('select popularity,id, Nickname from memes_creator\
+       order by popularity desc')
+    context = {
+        "all_memes" : all_memes,
+    }
+    return render(request, "memes/sort_creators.html", context)
+
+
+
 def creators(request):
     cursor = connection.cursor()
     context={}
